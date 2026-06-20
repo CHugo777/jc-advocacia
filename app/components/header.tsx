@@ -4,71 +4,158 @@ interface HeaderProps {
 
 export default function Header({ className = "" }: HeaderProps) {
   return (
-        <header
+    <header
       className={`
-        hidden md:block
         header-enter
-        fixed top-0 left-0 z-50 w-full
-        bg-black/44 border-b-2 border-white
+        fixed
+        left-0
+        top-0
+        z-50
+        hidden
+        w-full
+        border-b-2
+        border-white
+        bg-black/44
         backdrop-blur-sm
+        md:block
         ${className}
       `}
+    >
+      {/* Mesmo espaçamento lateral do restante do site */}
+      <div
+        className="
+          mx-auto
+          flex
+          h-24
+          w-full
+          max-w-[1920px]
+          items-center
+          justify-between
+          px-6
+
+          md:h-32
+          md:px-[60px]
+
+          xl:px-[125px]
+        "
       >
-      <div className="max-w-[1600px] mx-auto px-6 md:px-[125px] h-24 md:h-32 flex items-center justify-between">
+        {/* Logo alinhada com o conteúdo da esquerda */}
         <img
           src="/ChatGPT Image 8 de jun. de 2026, 12_29_24-Photoroom 1.png"
           alt="JC Pereira Advocacia"
-          className="h-16 md:h-[120px] w-auto"
+          className="
+            h-16
+            w-auto
+            shrink-0
+            object-contain
+
+            md:h-[120px]
+          "
         />
 
-              <nav className="hidden md:block">
-        <ul className="flex items-center gap-4 md:gap-6 lg:gap-10 text-white font-light font-['Inter']">
-          <li>
-            <a
-              href="#quem-somos"
-              className="text-xs md:text-sm lg:text-base hover:text-zinc-300 transition-colors duration-300"
-            >
-              QUEM SOMOS
-            </a>
-          </li>
+        {/* Menu alinhado com o limite direito */}
+        <nav className="hidden md:block">
+          <ul
+            className="
+              flex
+              items-center
+              gap-4
+              whitespace-nowrap
+              font-['Inter']
+              font-light
+              text-white
 
-          <li>
-            <a
-              href="#depoimentos"
-              className="text-xs md:text-sm lg:text-base hover:text-zinc-300 transition-colors duration-300"
-            >
-              DEPOIMENTOS
-            </a>
-          </li>
+              md:gap-6
 
-          <li>
-            <a
-              href="#fases"
-              className="text-xs md:text-sm lg:text-base hover:text-zinc-300 transition-colors duration-300"
-            >
-              FASES DO PROCESSO
-            </a>
-          </li>
+              lg:gap-10
+            "
+          >
+            <li>
+              <a
+                href="#quem-somos"
+                className="
+                  text-xs
+                  transition-colors
+                  duration-300
+                  hover:text-zinc-300
 
-          <li>
-            <a
-              href="#duvidas"
-              className="text-xs md:text-sm lg:text-base hover:text-zinc-300 transition-colors duration-300"
-            >
-              DÚVIDAS COMUNS
-            </a>
-          </li>
+                  md:text-sm
+                  lg:text-base
+                "
+              >
+                QUEM SOMOS
+              </a>
+            </li>
 
-          <li>
-            <a
-              href="#contato"
-              className="text-xs md:text-sm lg:text-base hover:text-zinc-300 transition-colors duration-300"
-            >
-              CONTATOS
-            </a>
-          </li>
-        </ul>
-      </nav>
+            <li>
+              <a
+                href="#depoimentos"
+                className="
+                  text-xs
+                  transition-colors
+                  duration-300
+                  hover:text-zinc-300
+
+                  md:text-sm
+                  lg:text-base
+                "
+              >
+                DEPOIMENTOS
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="#fases"
+                className="
+                  text-xs
+                  transition-colors
+                  duration-300
+                  hover:text-zinc-300
+
+                  md:text-sm
+                  lg:text-base
+                "
+              >
+                FASES DO PROCESSO
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="#duvidas"
+                className="
+                  text-xs
+                  transition-colors
+                  duration-300
+                  hover:text-zinc-300
+
+                  md:text-sm
+                  lg:text-base
+                "
+              >
+                DÚVIDAS COMUNS
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="#contato"
+                className="
+                  text-xs
+                  transition-colors
+                  duration-300
+                  hover:text-zinc-300
+
+                  md:text-sm
+                  lg:text-base
+                "
+              >
+                CONTATOS
+              </a>
+            </li>
+          </ul>
+        </nav>
       </div>
     </header>
   );
