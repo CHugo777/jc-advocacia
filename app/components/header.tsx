@@ -3,6 +3,29 @@ interface HeaderProps {
 }
 
 export default function Header({ className = "" }: HeaderProps) {
+  const menuItems = [
+    {
+      label: "QUEM SOMOS",
+      href: "#quem-somos",
+    },
+    {
+      label: "FASES DO PROCESSO",
+      href: "#fases",
+    },
+    {
+      label: "ATENDIMENTO",
+      href: "#atendimento",
+    },
+    {
+      label: "DÚVIDAS COMUNS",
+      href: "#duvidas",
+    },
+    {
+      label: "CONTATOS",
+      href: "#contato",
+    },
+  ];
+
   return (
     <header
       className={`
@@ -21,7 +44,6 @@ export default function Header({ className = "" }: HeaderProps) {
         ${className}
       `}
     >
-      {/* Mesmo espaçamento lateral do restante do site */}
       <div
         className="
           mx-auto
@@ -39,21 +61,20 @@ export default function Header({ className = "" }: HeaderProps) {
           xl:px-[125px]
         "
       >
-        {/* Logo alinhada com o conteúdo da esquerda */}
-        <img
-          src="/ChatGPT Image 8 de jun. de 2026, 12_29_24-Photoroom 1.png"
-          alt="JC Pereira Advocacia"
-          className="
-            h-16
-            w-auto
-            shrink-0
-            object-contain
+        <a href="#" className="shrink-0">
+          <img
+            src="/ChatGPT Image 8 de jun. de 2026, 12_29_24-Photoroom 1.png"
+            alt="JC Pereira Advocacia"
+            className="
+              h-16
+              w-auto
+              object-contain
 
-            md:h-[120px]
-          "
-        />
+              md:h-[120px]
+            "
+          />
+        </a>
 
-        {/* Menu alinhado com o limite direito */}
         <nav className="hidden md:block">
           <ul
             className="
@@ -65,95 +86,28 @@ export default function Header({ className = "" }: HeaderProps) {
               font-light
               text-white
 
-              md:gap-6
-
-              lg:gap-10
+              lg:gap-7
+              xl:gap-10
             "
           >
-            <li>
-              <a
-                href="#quem-somos"
-                className="
-                  text-xs
-                  transition-colors
-                  duration-300
-                  hover:text-zinc-300
+            {menuItems.map((item) => (
+              <li key={item.href}>
+                <a
+                  href={item.href}
+                  className="
+                    text-[11px]
+                    transition-colors
+                    duration-300
+                    hover:text-zinc-300
 
-                  md:text-sm
-                  lg:text-base
-                "
-              >
-                QUEM SOMOS
-              </a>
-            </li>
-
-            <li>
-              <a
-                href="#depoimentos"
-                className="
-                  text-xs
-                  transition-colors
-                  duration-300
-                  hover:text-zinc-300
-
-                  md:text-sm
-                  lg:text-base
-                "
-              >
-                DEPOIMENTOS
-              </a>
-            </li>
-
-            <li>
-              <a
-                href="#fases"
-                className="
-                  text-xs
-                  transition-colors
-                  duration-300
-                  hover:text-zinc-300
-
-                  md:text-sm
-                  lg:text-base
-                "
-              >
-                FASES DO PROCESSO
-              </a>
-            </li>
-
-            <li>
-              <a
-                href="#duvidas"
-                className="
-                  text-xs
-                  transition-colors
-                  duration-300
-                  hover:text-zinc-300
-
-                  md:text-sm
-                  lg:text-base
-                "
-              >
-                DÚVIDAS COMUNS
-              </a>
-            </li>
-
-            <li>
-              <a
-                href="#contato"
-                className="
-                  text-xs
-                  transition-colors
-                  duration-300
-                  hover:text-zinc-300
-
-                  md:text-sm
-                  lg:text-base
-                "
-              >
-                CONTATOS
-              </a>
-            </li>
+                    lg:text-sm
+                    xl:text-base
+                  "
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))}
           </ul>
         </nav>
       </div>
